@@ -19,10 +19,11 @@ oc get csr
 ```
 ![](/assets/get-csr-1.png)
 
-3. If there are any pending csr's, be sure to approve them
+3. If there are any pending csr's, approve them, and check again
  ```bash
  yum install jq -y
  oc get csr -ojson | jq -r '.items[] | select(.status == {} ) | .metadata.name' | xargs oc adm certificate approve
+ oc get csr
  ```
  ![](/assets/get-csr-2.png)
  
