@@ -8,8 +8,12 @@
 
 ### Connecting Secondary Network to OpenShift Nodes
 1. Power off all compute nodes
-2. Edit the VM settings of each compute node and add an additional network adapter
-3. Power on all compute nodes
+![](/assets/vm-off.png)
+
+3. Edit the VM settings of each compute node and add an additional network adapter
+![](net-adapters.png)
+
+5. Power on all compute nodes
 
 ### Ensure the OpenShift cluster is stable
 1. Login to via the *oc* command-line tool
