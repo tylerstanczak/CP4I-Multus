@@ -161,7 +161,7 @@ The events are at the bottom of the description output
 oc describe po <cp4i-pod-name>
 ```
 
-Here's an example of what App Connect Enterprise pod events look like when it connects successfully:
+Here's an example of what App Connect Enterprise pod events look like when Multus is configured correctly:
 ```bash
 [root@dns ~]# oc describe po db-01-quickstart-dash-6c59fdb875-xxlf7
 Name:         db-01-quickstart-dash-6c59fdb875-xxlf7
