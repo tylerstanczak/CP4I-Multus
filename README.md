@@ -22,7 +22,7 @@ oc get csr
  yum install jq -y
  oc get csr -ojson | jq -r '.items[] | select(.status == {} ) | .metadata.name' | xargs oc adm certificate approve
  ```
-4. Check node status and be sure they are all "Ready"
+4. Check node status and ensure they are all "Ready"
 ```bash
 oc get no
 ```
