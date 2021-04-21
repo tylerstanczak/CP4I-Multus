@@ -14,7 +14,7 @@
 ![](/assets/net-adapters.png)
 
 3. Power on all compute nodes
-1[](/assets/vm-on.png)
+![](/assets/vm-on.png)
 
 ### Ensure the OpenShift cluster is stable
 1. Login to via the *oc* command-line tool
