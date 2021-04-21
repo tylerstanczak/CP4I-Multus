@@ -54,7 +54,7 @@ oc debug no/<node-name>
 chroot /host
 ```
 
-3. Check the network adapter name
+3. Check the name of the second network adapter
 ```bash
 ip a
 ```
