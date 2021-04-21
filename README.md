@@ -46,6 +46,7 @@ ip a
 ```
 
 ### Configure the Cluster Network Operator
+Configuring the CNO with an "additional network" will cause OpenShift Multus to connect the 2nd network, and standby for connections to pods as needed.
 1. Use the *oc edit* command to modify the configuration
 ```bash
 oc edit networks.operator.openshift.io cluster
@@ -61,7 +62,7 @@ metadata:
 spec:
   additionalNetworks:
   - name: ipvlan-main
-  namespace: cp4i
+  namespace: cp4i # Your CP4I project / namespace
   rawCNIConfig: ’{
     "cniVersion": "0.3.1",
     "name": "ipvlan-main",
@@ -78,4 +79,53 @@ spec:
   type: Raw
 ...
 ```
+###### Please remove the comments following the *namespace* and *master* fields - they form improper JSON in the rawCNIConfig.
 
+### Connect the 2nd network to CP4I Deployments
+Connecting CP4I to Multus requires the addition of network annotations to all deployments that need access to the second network.
+
+1. Make sure you're within your CP4I Project Conext
+```bash
+oc project <cp4i-project>
+```
+
+2. Validate that a network attachment definition was created
+```bash
+oc get net-attach-def
+```
+
+3. Identify the CP4I Component you'd like to connect to the 2nd network
+```bash
+oc get deploy
+```
+or
+```bash
+oc get sts
+```
+
+4. Edit the target component
+```bash
+oc edit deploy <cp4i-component>
+```
+
+5. Add the annotation to the *spec.template.metadata.annotations* field. See the example snippet below for help.
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  ... # more metadata
+  name: db-01-quickstart-dash
+  namespace: cp4i
+  ... # more metadata
+spec:
+... # deployment spec
+  template:
+    metadata:
+      annotations:
+        ... # other annotations
+        k8s.v1.cni.cncf.io/networks: ipvlan-main
+        ... # other annotations
+      namespace: cp4i
+    spec:
+    ... # container spec
+```
