@@ -17,15 +17,20 @@
 ```bash
 oc get csr
 ```
+![](assets/get-csr-1.png)
+
 3. If there are any pending csr's, be sure to approve them
  ```bash
  yum install jq -y
  oc get csr -ojson | jq -r '.items[] | select(.status == {} ) | .metadata.name' | xargs oc adm certificate approve
  ```
+ ![](assets/get-csr-2.png)
+ 
 4. Check node status and ensure they are all "Ready"
 ```bash
 oc get no
 ```
+![](assets/get-no.png)
 
 ### Identify the name of the second network adapter on each compute node
 ```diff
@@ -36,14 +41,18 @@ oc get no
 ```bash
 oc debug no/<node-name>
 ```
+![](assets/debug.png)
+
 2. Use the node's host binaries
 ```bash
 chroot /host
 ```
+
 3. Check the network adapter name
 ```bash
 ip a
 ```
+![](assets/ip-a.png)
 
 ### Configure the Cluster Network Operator
 Configuring the CNO with an "additional network" will cause OpenShift Multus to connect the 2nd network, and standby for connections to pods as needed.
@@ -51,6 +60,7 @@ Configuring the CNO with an "additional network" will cause OpenShift Multus to 
 ```bash
 oc edit networks.operator.openshift.io cluster
 ```
+
 ###### This command will open a vi, vim or other text editor where you will make your edits. Be sure to save/write before closing or quitting out of the editor.
 
 2. See the example *additionalNetworks* spec below:
@@ -90,10 +100,11 @@ Repeat steps 3-5 for each deployment.
 oc project <cp4i-project>
 ```
 
-2. Validate that a network attachment definition was created
+2. Validate that a Network Attachment Definition was created. (If you don't have an NAD, you will need to edit your CNO again)
 ```bash
 oc get net-attach-def
 ```
+![](assets/get-nad.png)
 
 3. Identify the CP4I Component (Deployment or StatefulSet) you'd like to connect to the 2nd network
 ```bash
