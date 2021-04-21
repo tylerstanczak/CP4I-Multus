@@ -83,6 +83,7 @@ spec:
 
 ### Connect the 2nd network to CP4I Deployments
 Connecting CP4I to Multus requires the addition of network annotations to all deployments that need access to the second network.
+Repeat steps 3-5 for each deployment.
 
 1. Make sure you're within your CP4I Project Conext
 ```bash
@@ -94,7 +95,7 @@ oc project <cp4i-project>
 oc get net-attach-def
 ```
 
-3. Identify the CP4I Component you'd like to connect to the 2nd network
+3. Identify the CP4I Component (Deployment or StatefulSet) you'd like to connect to the 2nd network
 ```bash
 oc get deploy
 ```
@@ -128,4 +129,39 @@ spec:
       namespace: cp4i
     spec:
     ... # container spec
+```
+
+### Validating the 2nd network is connected
+1. Identify a pod that is running the component from before
+```bash
+oc get po
+```
+
+2. Inspect the events on that pod to see whether the network was attached successfully
+The events are at the bottom of the description output
+```bash
+oc describe po <cp4i-pod-name>
+```
+
+Here's an example of what App Connect Enterprise pod events look like when it connects successfully:
+```bash
+[root@dns ~]# oc describe po db-01-quickstart-dash-6c59fdb875-xxlf7
+Name:         db-01-quickstart-dash-6c59fdb875-xxlf7
+Namespace:    cp4i
+... (snippet)
+Events:
+  Type     Reason          Age                   From               Message
+  ----     ------          ----                  ----               -------
+  Normal   Scheduled       2m32s                 default-scheduler  Successfully assigned cp4i/db-01-quickstart-dash-6c59fdb875-xxlf7 to worker3
+  Normal   AddedInterface  2m29s                 multus             Add eth0 [10.129.2.33/23]
+  Normal   AddedInterface  2m29s                 multus             Add net1 [192.168.12.52/24] from cp4i/ipvlan-main
+  Normal   Pulled          2m29s                 kubelet            Container image "cp.icr.io/cp/appc/acecc-dashboard-prod@sha256:0fce25498220937f697056684c9d9afd46cb6ef1c9a39875631ecbf1d84f280c" already present on machine
+  Normal   Pulled          2m28s                 kubelet            Container image "cp.icr.io/cp/appc/acecc-dashboard-prod@sha256:0fce25498220937f697056684c9d9afd46cb6ef1c9a39875631ecbf1d84f280c" already present on machine
+  Normal   Started         2m28s                 kubelet            Started container content-server-init
+  Normal   Created         2m28s                 kubelet            Created container content-server-init
+  Normal   Created         2m28s                 kubelet            Created container control-ui
+  Normal   Started         2m28s                 kubelet            Started container control-ui
+  Normal   Pulled          2m28s                 kubelet            Container image "cp.icr.io/cp/appc/acecc-content-server-prod@sha256:db67b9c263ca90deafbd5be6e53baf45bd9723ee7cc049bdd2ef79823c896c7b" already present on machine
+  Normal   Created         2m27s                 kubelet            Created container content-server
+  Normal   Started         2m27s                 kubelet            Started container content-server
 ```
