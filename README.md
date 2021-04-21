@@ -1,5 +1,5 @@
-# IBM Cloud Pak for Integration Multus Configuration
-###### This documentation was created to provide 
+# Dual-Network IBM Cloud Pak for Integration Configuration via OpenShift Multus
+###### This documentation was created to provide validated instructions for connecting two networks to CP4I via OpenShift Multus
 
 ### Requirements
 
