@@ -11,7 +11,7 @@
 ![](/assets/vm-off.png)
 
 3. Edit the VM settings of each compute node and add an additional network adapter
-![](net-adapters.png)
+![](/assets/net-adapters.png)
 
 5. Power on all compute nodes
 
