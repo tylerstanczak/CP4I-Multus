@@ -64,7 +64,7 @@ spec:
   namespace: cp4i
   rawCNIConfig: ’{
     "cniVersion": "0.3.1",
- ⭐️ "name": "ipvlan-main", ⭐️
+    "name": "ipvlan-main",
     "type": "ipvlan", 
     "mode": "l2",
     "master": "ens224", # name of second adapter
