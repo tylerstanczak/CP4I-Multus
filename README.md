@@ -10,10 +10,11 @@
 1. Power off all compute nodes
 ![](/assets/vm-off.png)
 
-3. Edit the VM settings of each compute node and add an additional network adapter
+2. Edit the VM settings of each compute node and add an additional network adapter
 ![](/assets/net-adapters.png)
 
-5. Power on all compute nodes
+3. Power on all compute nodes
+1[](/assets/vm-on.png)
 
 ### Ensure the OpenShift cluster is stable
 1. Login to via the *oc* command-line tool
