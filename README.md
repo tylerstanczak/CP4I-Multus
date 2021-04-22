@@ -18,7 +18,11 @@
 
 ### Ensure the OpenShift cluster is stable
 1. Login to via the *oc* command-line tool
-2. Check for *certificate signing requests* (csr)
+```
+Copy and paste the login command from the top-right dropdown under your username in the OCP dashboard
+```
+
+3. Check for *certificate signing requests* (csr)
 ```bash
 oc get csr
 ```
