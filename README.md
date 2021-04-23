@@ -3,7 +3,7 @@
 
 ### Requirements
 
-- OpenShift 4.6.8 or later [OpenShift 4.6 Installation Docs](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
+- OpenShift 4.6.12 or later [OpenShift 4.6 Installation Docs](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
 - Cloud Pak for Integration 2021.1 [Cloud Pak for Integration Installation Docs](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=installing)
 
 ### Connecting Secondary Network to OpenShift Nodes
