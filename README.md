@@ -82,11 +82,11 @@ metadata:
 spec:
   additionalNetworks:
   - name: ipvlan-main
-    namespace: cp4i # Your CP4I project / namespace
-    rawCNIConfig: ’{
+    namespace: cp4i # target namespace / project
+    rawCNIConfig: '{
       "cniVersion": "0.3.1",
       "name": "ipvlan-main",
-      "type": "ipvlan", 
+      "type": "ipvlan",
       "mode": "l2",
       "master": "ens224", # name of second adapter
       "ipam": {
@@ -95,7 +95,7 @@ spec:
         "range_start": "192.168.12.50",
         "range_end": "192.168.12.200"
       }
-    }’
+    }'
     type: Raw
 ...
 ```
