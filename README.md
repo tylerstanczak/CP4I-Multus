@@ -82,21 +82,21 @@ metadata:
 spec:
   additionalNetworks:
   - name: ipvlan-main
-  namespace: cp4i # Your CP4I project / namespace
-  rawCNIConfig: ’{
-    "cniVersion": "0.3.1",
-    "name": "ipvlan-main",
-    "type": "ipvlan", 
-    "mode": "l2",
-    "master": "ens224", # name of second adapter
-    "ipam": {
-      "type": "whereabouts",
-      "range": "192.168.12.0/24",
-      "range_start": "192.168.12.50",
-      "range_end": "192.168.12.200"
-    }
-  }’
-  type: Raw
+    namespace: cp4i # Your CP4I project / namespace
+    rawCNIConfig: ’{
+      "cniVersion": "0.3.1",
+      "name": "ipvlan-main",
+      "type": "ipvlan", 
+      "mode": "l2",
+      "master": "ens224", # name of second adapter
+      "ipam": {
+        "type": "whereabouts",
+        "range": "192.168.12.0/24",
+        "range_start": "192.168.12.50",
+        "range_end": "192.168.12.200"
+      }
+    }’
+    type: Raw
 ...
 ```
 ###### Please remove the comments following the *namespace* and *master* fields - they form improper JSON in the rawCNIConfig.
