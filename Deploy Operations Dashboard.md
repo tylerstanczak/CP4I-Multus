@@ -10,4 +10,4 @@ Tracing is required to deploy MQ with CP4I. To enable tracing, first deploy an `
 - come back to this after deploying CP4I capabilities such as API-C, ACE, MQ, etc.
 The instructions for deploying MQ have a link back here when it's time to register for tracing.
 ```
-https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=configuration-capability-registration
+[IBM Documentation - Capability Registration](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=configuration-capability-registration)
