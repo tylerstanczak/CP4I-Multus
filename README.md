@@ -6,8 +6,9 @@ Follow the steps below
 2. [Install CP4I](Install%20CP4I.md "Cloud Pak for Integration")
 3. [Deploying Operations Dashboard](Deploy%20Operations%20Dashboard.md "Operations Dashboard")
 4. [Deploying App Connect Enterprise](Deploy%20ACE.md "App Connect Enterprise")
-5. [Deploying MQ](Deploy%20MQ.md "Deploy MQ")
-6. [Configure Multus](Configuring%20Multus.md "Configuring Multus")
+5. Deploying API Connect - Coming Soon
+6. [Deploying MQ](Deploy%20MQ.md "Deploy MQ")
+7. [Configure Multus](Configuring%20Multus.md "Configuring Multus")
 
 ### Requirements
 
