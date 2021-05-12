@@ -1,6 +1,12 @@
 # Dual-Network IBM Cloud Pak for Integration Configuration via OpenShift Multus
-###### This documentation was created to provide validated instructions for connecting two networks to CP4I via OpenShift Multus
+This documentation was created to provide validated instructions for connecting two networks to CP4I via OpenShift Multus
 
+### Table of Contents
+1. [Requirements]()
+2. [Add Network Adapters]()
+3. [Configure Multus]()
+4. [App Connect Enterprise]()
+5. [MQ]()
 ### Requirements
 
 - OpenShift 4.6.12 or later [OpenShift 4.6 Installation Docs](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
@@ -73,7 +79,7 @@ oc edit networks.operator.openshift.io cluster
 
 ###### This command will open a vi, vim or other text editor where you will make your edits. Be sure to save/write before closing or quitting out of the editor.
 
-2. See the example *additionalNetworks* spec below:
+2. See the example ``additionalNetworks`` spec below:
 ```yaml
 apiVersion: operator.openshift.io/v1
 kind: Network
@@ -101,37 +107,33 @@ spec:
 ```
 ###### Please remove the comments following the *namespace* and *master* fields - they form improper JSON in the rawCNIConfig.
 
-### Connect the 2nd network to CP4I Deployments
-Connecting CP4I to Multus requires the addition of network annotations to all deployments that need access to the second network.
-Repeat steps 3-5 for each deployment.
-
-1. Make sure you're within your CP4I Project Conext
+3. Make sure you're within your CP4I Project Context
 ```bash
 oc project <cp4i-project>
 ```
 
-2. Validate that a Network Attachment Definition was created. (If you don't have an NAD, you will need to edit your CNO again)
+4. Validate that a ``Network Attachment Definition`` was created. (If you don't have an NAD, you will need to edit your CNO again)
 ```bash
 oc get net-attach-def
 ```
 ![](/assets/get-nad.png)
 
-3. Identify the CP4I Component (Deployment or StatefulSet) you'd like to connect to the 2nd network
+### Connect the 2nd network to App Connect Enterprise (ACE)
+Connecting CP4I to Multus requires the addition of network annotations to all components that need access to the second network.
+Ace pods are replicated and controlled by a ``Deployment`` in OCP, so we add the annotation there at the top level.
+
+1. Identify the ACE Deployment or StatefulSet you'd like to connect to the 2nd network
 ```bash
 oc get deploy
 ```
-or
-```bash
-oc get sts
-```
 ![](/assets/get-deploy.png)
 
-4. Edit the target component
+2. Edit the target component
 ```bash
 oc edit deploy <cp4i-component>
 ```
 
-5. Add the annotation to the *spec.template.metadata.annotations* field. See the example snippet below for help.
+3. Add the annotation to the ``spec.template.metadata.annotations`` field. See the example snippet below for help.
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -153,16 +155,16 @@ spec:
     ... # container spec
 ```
 
-### Validating the 2nd network is connected
-1. Identify a pod that is running the component from before
+4. Validating the 2nd network is connected
+Identify an ACE pod
 ```bash
 oc get po
 ```
 
-2. Inspect the events on that pod to see whether the network was attached successfully
+Inspect the events on that pod to see whether the network was attached successfully
 The events are at the bottom of the description output
 ```bash
-oc describe po <cp4i-pod-name>
+oc describe po <ace-pod-name>
 ```
 
 Here's an example of what App Connect Enterprise pod events look like when Multus is configured correctly:
@@ -187,3 +189,29 @@ Events:
   Normal   Created         2m27s                 kubelet            Created container content-server
   Normal   Started         2m27s                 kubelet            Started container content-server
 ```
+
+### Connect the 2nd network to IBM MQ
+Connecting CP4I to Multus requires the addition of network annotations to all components that need access to the second network.
+MQ pods are replicated and controlled by a ``StatefulSet``, however, a ``QueueManager`` controls the StatefulSet.
+Because the queuemanager is the top level resource, we add the annotation there.
+
+1. Identify the MQ QueueManager you'd like to connect to the 2nd network:
+```bash
+oc get queuemanager
+```
+
+2. Add the annotation to the ``metadata.annotations`` field. See the example snippet below for help.
+```yaml
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks: ipvlan-main
+  ... # other metadata
+spec:
+  license:
+    accept: true
+  ... # more spec
+```
+
+3. Describe the MQ pods to verify the 2 networks have been added in the event list
