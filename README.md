@@ -6,7 +6,7 @@ This documentation was created to provide validated instructions for connecting 
 2. [Add Network Adapters]()
 3. [Configure Multus]()
 4. [App Connect Enterprise]()
-5. [MQ]()
+5. [MQ](https://github.com/tylerstanczak/CP4I-Multus/blob/main/README.md#connect-the-2nd-network-to-ibm-mq)
 ### Requirements
 
 - OpenShift 4.6.12 or later [OpenShift 4.6 Installation Docs](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
