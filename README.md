@@ -2,10 +2,10 @@
 This documentation was created to provide validated instructions for connecting two networks to CP4I via OpenShift Multus
 
 ### Table of Contents
-1. [Requirements]()
+1. [Requirements](#requirements)
 2. [Add Network Adapters]()
 3. [Configure Multus]()
-4. [App Connect Enterprise]()
+4. [App Connect Enterprise](https://github.com/tylerstanczak/CP4I-Multus/blob/main/README.md#connect-the-2nd-network-to-app-connect-enterprise-ace)
 5. [MQ](https://github.com/tylerstanczak/CP4I-Multus/blob/main/README.md#connect-the-2nd-network-to-ibm-mq)
 ### Requirements
 
