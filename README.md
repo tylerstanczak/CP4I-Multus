@@ -2,11 +2,11 @@
 This documentation was created to provide validated instructions for connecting two networks to CP4I via OpenShift Multus
 
 ### Table of Contents
-1. [Requirements](#requirements)
-2. [Add Network Adapters]()
-3. [Configure Multus]()
-4. [App Connect Enterprise](https://github.com/tylerstanczak/CP4I-Multus/blob/main/README.md#connect-the-2nd-network-to-app-connect-enterprise-ace)
-5. [MQ](https://github.com/tylerstanczak/CP4I-Multus/blob/main/README.md#connect-the-2nd-network-to-ibm-mq)
+1. [Requirements](#requirements "Requirements")
+2. [Add Network Adapters](#connecting-secondary-network-to-openshift-nodes "Add Network Adapters")
+3. [Configure Multus](#configure-multus "Configure Multus")
+4. [App Connect Enterprise](#connect-the-2nd-network-to-app-connect-enterprise-ace "App Connect Enterprise")
+5. [MQ](#connect-the-2nd-network-to-ibm-mq "IBM MQ")
 ### Requirements
 
 - OpenShift 4.6.12 or later [OpenShift 4.6 Installation Docs](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
@@ -70,16 +70,18 @@ ip a
 ```
 ![](/assets/ip-a.png)
 
-### Configure the Cluster Network Operator
+### Configure Multus
+Configuration of Multus is accomplished by configuring the ``Cluster Network Operator`` (CNO)
 Configuring the CNO with an "additional network" will cause OpenShift Multus to connect the 2nd network, and standby for connections to pods as needed.
-1. Use the *oc edit* command to modify the configuration
+1. Use the ``oc edit`` command below to modify the configuration of the CNO
 ```bash
 oc edit networks.operator.openshift.io cluster
 ```
 
 ###### This command will open a vi, vim or other text editor where you will make your edits. Be sure to save/write before closing or quitting out of the editor.
 
-2. See the example ``additionalNetworks`` spec below:
+2. See an example of the ``additionalNetworks`` spec that must be configured below:
+Note there are many different ipam plugins to choose from. Our example uses [whereabouts](https://github.com/k8snetworkplumbingwg/whereabouts)
 ```yaml
 apiVersion: operator.openshift.io/v1
 kind: Network
