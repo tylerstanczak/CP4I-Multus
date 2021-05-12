@@ -1,6 +1,6 @@
 # Table of Contents
 1. [Requirements](#requirements "Requirements")
-2. [Add Network Adapters](#connecting-secondary-network-to-openshift-nodes "Add Network Adapters")
+2. [Platform Navigator](Platform%20Navigator.md)
 3. [Configure Multus](#configure-multus "Configure Multus")
 4. [App Connect Enterprise](#connect-the-2nd-network-to-app-connect-enterprise-ace "App Connect Enterprise")
 5. [MQ](#connect-the-2nd-network-to-ibm-mq "IBM MQ")
