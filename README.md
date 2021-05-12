@@ -1,9 +1,10 @@
 # Table of Contents
 1. [Requirements](#requirements "Requirements")
-2. [Platform Navigator](Platform%20Navigator.md)
-3. [Configure Multus](#configure-multus "Configure Multus")
-4. [App Connect Enterprise](#connect-the-2nd-network-to-app-connect-enterprise-ace "App Connect Enterprise")
-5. [MQ](#connect-the-2nd-network-to-ibm-mq "IBM MQ")
+2. [Deploying Platform Navigator](Deploy%20Platform%20Navigator.md "Platform Navigator)
+3. [Deploying Operations Dashboard](Deploy%20Operations%20Dashboard.md "Operations Dashboard")
+4. Deploy App Connect Enterprise - TBD
+5. [Deploying MQ](Deploy%20MQ.md "Deploy MQ")
+6. [Configure Multus](Configuring%20Multus.md "Configuring Multus")
 
 ### Requirements
 
