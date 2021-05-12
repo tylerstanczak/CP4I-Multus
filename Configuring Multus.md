@@ -18,7 +18,7 @@ This documentation was created to provide validated instructions for connecting 
   ```
 - Highly Recommended: Deploy [Platform Navigator](Platform%20Navigator.md) & [Operations Dashboard](IBM%20docs%20Installing%20MQ.md) before deploying additional CP4I capabilities
 
-### Connecting Secondary Network to OpenShift Nodes
+### Connect Secondary Network to OpenShift Nodes
 1. Power off all compute nodes
 ![](/assets/vm-off.png)
 
