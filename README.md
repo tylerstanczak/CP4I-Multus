@@ -1,6 +1,9 @@
-# Table of Contents
+# CP4I Install with Multus
+
+Follow the steps below
+
 1. [Requirements](#requirements "Requirements")
-2. [Deploying Platform Navigator](Deploy%20Platform%20Navigator.md "Platform Navigator")
+2. [Install CP4I](Install%20CP4I.md "Cloud Pak for Integration")
 3. [Deploying Operations Dashboard](Deploy%20Operations%20Dashboard.md "Operations Dashboard")
 4. [Deploying App Connect Enterprise](Deploy%20ACE.md "App Connect Enterprise")
 5. [Deploying MQ](Deploy%20MQ.md "Deploy MQ")
@@ -15,4 +18,4 @@
   + "ibm-entitlement-key"
   - as some CP4I capabilities such as MQ require an IBM entitled registry key with this name
   ```
-- Highly Recommended: Deploy [Platform Navigator](Platform%20Navigator.md) & [Operations Dashboard](IBM%20docs%20Installing%20MQ.md) before deploying additional CP4I capabilities
+- Highly Recommended: Deploy [Operations Dashboard](IBM%20docs%20Installing%20MQ.md) before deploying additional CP4I capabilities
