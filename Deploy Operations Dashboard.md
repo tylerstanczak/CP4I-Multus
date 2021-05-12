@@ -3,6 +3,11 @@ Tracing is required to deploy MQ with CP4I. To enable tracing, first deploy an `
 
 [Installing Operations Dashboard](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=configuration-installation)
 
+
+
 ### Registering a Capability for Tracing
-Similar steps can be followed for registering API Connect, App Connect Enterprise, MQ, or other capabilities with the Operations Dashboard
+```diff
+- come back to this after deploying CP4I capabilities such as API-C, ACE, MQ, etc.
+The instructions for deploying MQ have a link back here when it's time to register for tracing.
+```
 https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=configuration-capability-registration
