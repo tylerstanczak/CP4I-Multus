@@ -16,7 +16,7 @@ This documentation was created to provide validated instructions for connecting 
   + "ibm-entitlement-key"
   - as some CP4I capabilities such as MQ require an IBM entitled registry key with this name
   ```
-- Recommended: Deploy Platform Navigator & Operations Dashboard before 
+- Highly Recommended: Deploy [Platform Navigator](/Platform Navigator.md) & [Operations Dashboard](/IBM docs Installing MQ.md) before deploying additional CP4I capabilities
 
 ### Connecting Secondary Network to OpenShift Nodes
 1. Power off all compute nodes
