@@ -1,8 +1,8 @@
 # Table of Contents
 1. [Requirements](#requirements "Requirements")
-2. [Deploying Platform Navigator](Deploy%20Platform%20Navigator.md "Platform Navigator)
+2. [Deploying Platform Navigator](Deploy%20Platform%20Navigator.md "Platform Navigator")
 3. [Deploying Operations Dashboard](Deploy%20Operations%20Dashboard.md "Operations Dashboard")
-4. Deploy App Connect Enterprise - TBD
+4. [Deploying App Connect Enterprise](Deploy%20ACE.md "App Connect Enterprise")
 5. [Deploying MQ](Deploy%20MQ.md "Deploy MQ")
 6. [Configure Multus](Configuring%20Multus.md "Configuring Multus")
 
