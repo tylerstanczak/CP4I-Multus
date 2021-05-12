@@ -4,7 +4,7 @@ This documentation was created to provide validated instructions for connecting 
 ### Table of Contents
 1. [Requirements](#requirements "Requirements")
 2. [Add Network Adapters](#connecting-secondary-network-to-openshift-nodes "Add Network Adapters")
-3. [Configure Multus](#configure-multus "Configure Multus")
+3. [Configure Cluster Network Operator](#configure-cluster-network-operator "Configure CNO")
 4. [App Connect Enterprise](#connect-the-2nd-network-to-app-connect-enterprise-ace "App Connect Enterprise")
 5. [MQ](#connect-the-2nd-network-to-ibm-mq "IBM MQ")
 ### Requirements
@@ -76,7 +76,7 @@ ip a
 ```
 ![](/assets/ip-a.png)
 
-### Configure Multus
+### Configure Cluster Network Operator
 Configuration of Multus is accomplished by configuring the ``Cluster Network Operator`` (CNO)
 Configuring the CNO with an "additional network" will cause OpenShift Multus to connect the 2nd network, and standby for connections to pods as needed.
 1. Use the ``oc edit`` command below to modify the configuration of the CNO
