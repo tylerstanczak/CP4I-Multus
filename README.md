@@ -12,10 +12,11 @@ Follow the steps below
 
 ### Requirements
 
-- OpenShift 4.6.12 or later [OpenShift 4.6 Installation Docs](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
+- OpenShift 4.6.12 or later [Click here to follow the OpenShift 4.6 Installation Docs if you don't already have OpenShift installed](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
+
 - License for Cloud Pak for Integration 2021.1 [Cloud Pak for Integration Installation Docs](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=installing)
   ```diff
-  - NOTICE During Installation, name your IBM Entitled Registry Key Secret:
+  - NOTICE During CP4I Installation, name your IBM Entitled Registry Key Secret:
   + "ibm-entitlement-key"
   - as some CP4I capabilities such as MQ require an IBM entitled registry key with this name
   ```
