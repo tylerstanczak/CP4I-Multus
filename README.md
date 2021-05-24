@@ -13,7 +13,7 @@ Follow the steps below
 ### Requirements
 
 - OpenShift 4.6.12 or later [OpenShift 4.6 Installation Docs](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
-- Cloud Pak for Integration 2021.1 [Cloud Pak for Integration Installation Docs](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=installing)
+- License for Cloud Pak for Integration 2021.1 [Cloud Pak for Integration Installation Docs](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=installing)
   ```diff
   - NOTICE During Installation, name your IBM Entitled Registry Key Secret:
   + "ibm-entitlement-key"
