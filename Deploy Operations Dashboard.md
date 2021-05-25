@@ -1,5 +1,5 @@
-# Deploying MQ with CP4I
-Tracing is required to deploy MQ with CP4I. To enable tracing, first deploy an ``Operations Dashboard`` (OD) capability
+# Deploying Operations Dashboard with CP4I
+To enable tracing for capabilities and runtimes, first deploy an ``Operations Dashboard`` (OD) capability
 
 [IBM Documentation - Deploying Operations Dashboard](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=configuration-installation)
 
