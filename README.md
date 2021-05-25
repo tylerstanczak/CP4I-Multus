@@ -1,6 +1,5 @@
-# CP4I Install with Multus
+# Dual-Network IBM Cloud Pak for Integration Installation and Configuration with OpenShift Multus
 
-Follow the steps below
 
 1. [Requirements](#requirements "Requirements")
 2. [Express Installation - Cloud Pak for Integration 2021.1](#express-installation---cloud-pak-for-integration-20211 "Cloud Pak for Integration")
