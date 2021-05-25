@@ -15,6 +15,13 @@ Follow the steps below
 - OpenShift 4.6.12 or later 
   - [Click here to follow the OpenShift 4.6 Installation Docs if you don't already have OpenShift installed](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
 
-- License for Cloud Pak for Integration 2021.1 
+- License for Cloud Pak for Integration 2021.1
+
+- The capabilities and runtimes in Cloud Pak for Integration have varying storage requirements. At a minimum, you will require a storage class that supports the RWO access mode. For Asset Repository, Operations Dashboard, App Connect dashboard, Aspera HSTS, and MQ, you will also require a storage class that supports the RWX access mode. The recommended storage providers are:
+
+  - OpenShift Container Storage version 4.x (starting with version 4.2 or higher)
+  - Portworx Storage, version 2.5.5 or above
+  - IBM Cloud Block Storage and IBM Cloud File Storage
+
   
 - Highly Recommended: Deploy [Operations Dashboard](IBM%20docs%20Installing%20MQ.md) before deploying additional CP4I capabilities
