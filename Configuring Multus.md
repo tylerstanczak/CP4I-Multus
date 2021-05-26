@@ -1,4 +1,4 @@
-# Configurin OpenShift Multus
+# Configuring OpenShift Multus
 This documentation was created to provide validated instructions for connecting two networks to CP4I via OpenShift Multus.
 In this section you will need infrastructure permissions to modify the underlying OpenShift nodes.
 
