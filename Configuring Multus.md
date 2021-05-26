@@ -1,22 +1,6 @@
-# Dual-Network IBM Cloud Pak for Integration Configuration via OpenShift Multus
-This documentation was created to provide validated instructions for connecting two networks to CP4I via OpenShift Multus
-
-### Table of Contents
-1. [Requirements](#requirements "Requirements")
-2. [Add Network Adapters](#connecting-secondary-network-to-openshift-nodes "Add Network Adapters")
-3. [Configure Cluster Network Operator](#configure-cluster-network-operator "Configure CNO")
-4. [App Connect Enterprise](#connect-the-2nd-network-to-app-connect-enterprise-ace "App Connect Enterprise")
-5. [MQ](#connect-the-2nd-network-to-ibm-mq "IBM MQ")
-### Requirements
-
-- OpenShift 4.6.12 or later [OpenShift 4.6 Installation Docs](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
-- Cloud Pak for Integration 2021.1 [Cloud Pak for Integration Installation Docs](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=installing)
-  ```diff
-  - NOTICE During Installation, name your IBM Entitled Registry Key Secret:
-  + "ibm-entitlement-key"
-  - as some CP4I capabilities such as MQ require an IBM entitled registry key with this name
-  ```
-- Highly Recommended: Deploy [Platform Navigator](Platform%20Navigator.md) & [Operations Dashboard](IBM%20docs%20Installing%20MQ.md) before deploying additional CP4I capabilities
+# Configurin OpenShift Multus
+This documentation was created to provide validated instructions for connecting two networks to CP4I via OpenShift Multus.
+In this section you will need infrastructure permissions to modify the underlying OpenShift nodes.
 
 ### Connect Secondary Network to OpenShift Nodes
 1. Power off all compute nodes
@@ -126,9 +110,12 @@ oc get net-attach-def
 ```
 ![](/assets/get-nad.png)
 
+# Attaching additional networks to CP4I workloads
+Connecting additional networks to workloads is always done via ``annotations``. In the following sections, you will learn how to assign/apply a special container network interface annotation to each workload. This is a simple process, however, different workloads require the annotation to be inserted at a different level of the custom resource tree. Some capabilities and runtimes may simply be modified at their resulting OCP Deployment or StatefulSet resource (ACE), yet others ignore these modifications and look to their maintaining custom resource one level higher in the tree (MQ).
+
 ### Connect the 2nd network to App Connect Enterprise (ACE)
 Connecting CP4I to Multus requires the addition of network annotations to all components that need access to the second network.
-Ace pods are replicated and controlled by a ``Deployment`` in OCP, so we add the annotation there at the top level.
+ACE pods are replicated and controlled by a ``Deployment`` in OCP, so we add the annotation there at the top level.
 
 1. Identify the ACE Deployment or StatefulSet you'd like to connect to the 2nd network
 ```bash
@@ -138,7 +125,7 @@ oc get deploy
 
 2. Edit the target component
 ```bash
-oc edit deploy <cp4i-component>
+oc edit deploy <ace-component>
 ```
 
 3. Add the annotation to the ``spec.template.metadata.annotations`` field. See the example snippet below for help.
@@ -200,8 +187,8 @@ Events:
 
 ### Connect the 2nd network to IBM MQ
 Connecting CP4I to Multus requires the addition of network annotations to all components that need access to the second network.
-MQ pods are replicated and controlled by a ``StatefulSet``, however, a ``QueueManager`` controls the StatefulSet.
-Because the queuemanager is the top level resource, we add the annotation there.
+MQ pods are replicated and controlled by a ``StatefulSet``, however, a ``QueueManager`` controls and maintains the ``StatefulSet``.
+Because the ``QueueManager`` is the top level resource, the annotation must be added there.
 
 1. Identify the MQ QueueManager you'd like to connect to the 2nd network:
 ```bash
@@ -222,4 +209,9 @@ spec:
   ... # more spec
 ```
 
-3. Describe the MQ pods to verify the 2 networks have been added in the event list
+3. Describe the MQ pods to verify that 2 network interfaces have been added in the event list.
+Ex:
+```
+  Normal   AddedInterface  2m29s                 multus             Add eth0 [10.129.2.33/23]
+  Normal   AddedInterface  2m29s                 multus             Add net1 [192.168.12.52/24] from cp4i/ipvlan-main
+```
