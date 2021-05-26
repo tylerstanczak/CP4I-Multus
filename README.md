@@ -52,3 +52,16 @@ Scroll down to the section titled: "Installing Operations Dashboard from the Pla
 ```
 Scroll down to the section titled: "Capability registration with service binding API" on the linked IBM Documentation page.
 [IBM Documentation - Capability Registration](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=configuration-capability-registration)
+
+# App Connect Enterprise Deployment
+There are three simple ways to deploy the App Connect dashboard
+
+- CP4I Platform Navigator UI
+- OpenShift Installed Operators UI
+- OpenShift CLI
+
+Click the link below to find those three options and their respective instructions
+
+[IBM Documentation - App Connect Dashboard reference](https://www.ibm.com/docs/en/app-connect/11.0.0?topic=resources-dashboard-reference#install)
+
+After installing and accessing the dashboard, you can create integration servers with .bar files per usual
