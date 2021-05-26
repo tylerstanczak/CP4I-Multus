@@ -3,8 +3,6 @@ To enable tracing for capabilities and runtimes, first deploy an ``Operations Da
 
 [IBM Documentation - Deploying Operations Dashboard](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=configuration-installation)
 
-
-
 ### Registering a Capability/Runtime for Tracing
 ```diff
 - If you decide to enable tracing during a capability/runtime deployment follow the link below to activate the tracing
