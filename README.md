@@ -4,7 +4,7 @@ This documentation was created to provide validated instructions for connecting 
 
 1. [Requirements](#requirements "Requirements")
 2. [Express Installation - Cloud Pak for Integration 2021.1](#express-installation---cloud-pak-for-integration-20211 "Cloud Pak for Integration")
-3. [Deploying Operations Dashboard](Deploy%20Operations%20Dashboard.md "Operations Dashboard")
+3. [Deploying Operations Dashboard](#deploying-operations-dashboard-with-cp4i "Operations Dashboard")
 4. [Deploying App Connect Enterprise](Deploy%20ACE.md "App Connect Enterprise")
 5. Deploying API Connect - Coming Soon
 6. [Deploying MQ](Deploy%20MQ.md "Deploy MQ")
