@@ -5,8 +5,8 @@ To enable tracing for capabilities and runtimes, first deploy an ``Operations Da
 
 
 
-### Registering a Capability for Tracing
+### Registering a Capability/Runtime for Tracing
 ```diff
-- come back to this section after deploying CP4I capabilities such as API-C, ACE, MQ, etc if you opted to enable tracing.
+- If you decide to enable tracing during a capability/runtime deployment follow the link below to activate the tracing
 ```
 [IBM Documentation - Capability Registration](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=configuration-capability-registration)
