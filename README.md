@@ -1,5 +1,6 @@
 # Dual-Network IBM Cloud Pak for Integration Installation and Configuration with OpenShift Multus
-This documentation was created to provide validated instructions for connecting two networks to CP4I capabilities and runtimes via OpenShift Multus
+This documentation was created to provide validated instructions for connecting two networks to CP4I capabilities and runtimes via OpenShift Multus.
+This guide often provides a hyperlink to IBM documentation. These hyperlinks often redirect to the middle of a documentation tree. Please do not navigate away from the target page unless instructed to do so. All of the instructions you need will be on the hyperlinked page!
 
 1. [Requirements](#requirements "Requirements")
 2. [Express Installation - Cloud Pak for Integration 2021.1](#express-installation---cloud-pak-for-integration-20211 "Cloud Pak for Integration")
