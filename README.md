@@ -39,4 +39,4 @@ Platform Navigator install instructions are at the bottom of the express install
 
 [Click here for the CP4I Express installation instructions](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=installing-express-installation-cloud-pak-integration)
 
-On this page, scroll down to the 3rd section titled "Installing" and begin following the instructions there.
+On this page, scroll down to the 3rd section titled "Installing" and begin following the instructions from there to the end of the page. 
