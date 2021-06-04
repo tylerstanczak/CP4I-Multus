@@ -19,6 +19,6 @@
 Note: You must accept the license. Follow the example below to fill in the other optional fields with the appropriate values for a licensed Cloud Pak deployment of API-Connect
 ![](/assets/api-connect-license.png)
 
-
+Deployment will take about 10-15 minutes after submitting the form. 
 
 [IBM Documentation - API-Connect reference](https://www.ibm.com/docs/en/cloud-paks/cp-integration/2021.1?topic=runtimes-api-management-deployment)
