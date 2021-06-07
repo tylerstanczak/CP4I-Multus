@@ -6,7 +6,7 @@ This documentation was created to provide validated instructions for connecting 
 2. [Express Installation - Cloud Pak for Integration 2021.1](#express-installation---cloud-pak-for-integration-20211 "Cloud Pak for Integration")
 3. [Deploying Operations Dashboard](#deploying-operations-dashboard-with-cp4i "Operations Dashboard")
 4. [App Connect Enterprise Deployment](#app-connect-enterprise-deployment "App Connect Enterprise")
-5. Deploying API Connect - Coming Soon
+5. [Deploying API Connect](#api-connect-deployment "API-Connect")
 6. [Deploy an MQ Queue Manager](#deploy-an-mq-queue-manager-using-cp4i-platform-navigator "Deploy MQ")
 7. [Configure OpenShift Multus](#configuring-openshift-multus "Configuring Multus")
 
